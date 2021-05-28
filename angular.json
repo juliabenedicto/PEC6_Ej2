@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "vinos"
+    }
+  },
+  "defaultProject": "vinos",
+  "cli": {
+    "analytics": "3b98ba43-f587-4b6a-9eea-df212d979fc0"
+  }
 }

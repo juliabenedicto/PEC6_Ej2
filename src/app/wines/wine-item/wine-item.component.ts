@@ -1,48 +1,35 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output
+} from "@angular/core";
 
 import { Wine } from "../../models/wine";
+import { WineQuantityChange } from "../../models/wine-quantity-change";
 
 @Component({
   selector: "app-wine-item",
   templateUrl: "./wine-item.component.html",
-  styleUrls: ["./wine-item.component.css"]
+  styleUrls: ["./wine-item.component.css"],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class WineItemComponent implements OnInit {
-  public wine: Wine;
+export class WineItemComponent {
+  @Input() public wine: Wine;
+  @Output() public quantityChange: EventEmitter<
+    WineQuantityChange
+  > = new EventEmitter();
 
   constructor() {}
 
-  ngOnInit() {
-    this.wine = {
-      name: "Domaine de la Butte La Pied de la Butte",
-      imageUrl: "assets/images/wine1.png",
-      price: 19.95,
-      foodPairing: [
-        {
-          name: "Embutidos",
-          glutten: false,
-          kcal: 600,
-          vegan: false
-        },
-        {
-          name: "Patés",
-          glutten: false,
-          kcal: 200,
-          vegan: false
-        }
-      ],
-      isOnSale: false,
-      quantityInCart: 0
-    };
-  }
-
   incrementInCart() {
-    this.wine.quantityInCart++;
+    this.quantityChange.emit({ wine: this.wine, changeInQuantity: 1 });
   }
 
   decrementInCart() {
     if (this.wine.quantityInCart > 0) {
-      this.wine.quantityInCart--;
+      this.quantityChange.emit({ wine: this.wine, changeInQuantity: -1 });
     }
   }
 }

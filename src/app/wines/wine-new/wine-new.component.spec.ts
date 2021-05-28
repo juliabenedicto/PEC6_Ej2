@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, async } from "@angular/core/testing";
 
-import { WineItemComponent } from "./wine-item.component";
+import { WineNewComponent } from "./wine-new.component";
 
-describe("WineItemComponent", () => {
-  let component: WineItemComponent;
-  let fixture: ComponentFixture<WineItemComponent>;
+describe("WineNewComponent", () => {
+  let component: WineNewComponent;
+  let fixture: ComponentFixture<WineNewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [WineItemComponent]
+      declarations: [WineNewComponent]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WineItemComponent);
+    fixture = TestBed.createComponent(WineNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
