@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, async } from "@angular/core/testing";
-
 import { WineItemComponent } from "./wine-item.component";
+import { By } from "@angular/platform-browser";
+
 
 describe("WineItemComponent", () => {
   let component: WineItemComponent;
