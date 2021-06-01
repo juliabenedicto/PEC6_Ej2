@@ -1,6 +1,6 @@
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, LOCALE_ID } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -18,7 +18,8 @@ import { WineService } from "./services/wine.service";
     WineNewComponent
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, HttpClientModule],
-  providers: [WineService],
+  providers: [WineService, {provide: LOCALE_ID,
+    useValue:'es-ES'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

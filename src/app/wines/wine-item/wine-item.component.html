@@ -2,7 +2,7 @@
     <div class="image"><img [src]="wine.imageUrl" /></div>
     <div class="details">
         <div>{{ wine.name }}</div>
-        <div>{{ wine.price }} €</div>
+        <div>{{wine.price|currency:'EUR':true}}</div>
         <div>
             <button *ngIf="wine.quantityInCart > 0" (click)="decrementInCart()">
         -
